@@ -1,0 +1,67 @@
+
+VLOGAN	= vlogan
+VLOGAN_OPT	= -kdb -notice -full64
+
+all :		_VCSgd_HHzlee_1.db \
+	_VCSgd_wsdjp_1.db \
+	_VCSgd_UMUl6c_1.db \
+	_VCSgd_o8PG3d_1.db \
+	_VCSgd_wddaqb_1.db \
+	_VCSgd_nGFE7b_1.db \
+	_VCSgd_V6nu0d_1.db \
+	_VCSgd_ptmq7_1.db \
+	_VCSgd_LdcHX_1.db \
+	_VCSgd_t3fAWd_1.db \
+	_VCSgd_F57Qbe_1.db \
+	_VCSgd_qHidte_1.db \
+
+
+
+_VCSgd_HHzlee_1.db :	clock_divider.v 
+		${VLOGAN}  ${VLOGAN_OPT} clock_divider.v
+
+
+_VCSgd_wsdjp_1.db :	cpu_com_controller.v 
+		${VLOGAN}  ${VLOGAN_OPT} cpu_com_controller.v
+
+
+_VCSgd_UMUl6c_1.db :	memory_com.v 
+		${VLOGAN}  ${VLOGAN_OPT} memory_com.v
+
+
+_VCSgd_o8PG3d_1.db :	out.v 
+		${VLOGAN}  ${VLOGAN_OPT} out.v
+
+
+_VCSgd_wddaqb_1.db :	PB_Debouncer_FSM.v 
+		${VLOGAN}  ${VLOGAN_OPT} PB_Debouncer_FSM.v
+
+
+_VCSgd_nGFE7b_1.db :	top.v 
+		${VLOGAN}  ${VLOGAN_OPT} top.v
+
+
+_VCSgd_V6nu0d_1.db :	uart_32bit_rx.v 
+		${VLOGAN}  ${VLOGAN_OPT} uart_32bit_rx.v
+
+
+_VCSgd_ptmq7_1.db :	uart_32bit_tx.v 
+		${VLOGAN}  ${VLOGAN_OPT} uart_32bit_tx.v
+
+
+_VCSgd_LdcHX_1.db :	uart_sm_rx.v 
+		${VLOGAN}  ${VLOGAN_OPT} uart_sm_rx.v
+
+
+_VCSgd_t3fAWd_1.db :	uart_sm_tx.v 
+		${VLOGAN}  ${VLOGAN_OPT} uart_sm_tx.v
+
+
+_VCSgd_F57Qbe_1.db :	word_32_bit_uart_rx.v 
+		${VLOGAN}  ${VLOGAN_OPT} word_32_bit_uart_rx.v
+
+
+_VCSgd_qHidte_1.db :	word_32bit_uart_tx.v 
+		${VLOGAN}  ${VLOGAN_OPT} word_32bit_uart_tx.v
+
+
