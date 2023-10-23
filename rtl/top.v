@@ -29,6 +29,7 @@ cpu_com_controller com_controller(
 // SINGLE CYCLE CPU INSTANCE
 wire [31:0] address, write_data, read_data;
 wire write_enable, read_enable;
+reg mem_done ;  
 
 tt_um_single_cycle_datapath CPU (
 	.clk (clk),
@@ -38,7 +39,8 @@ tt_um_single_cycle_datapath CPU (
 	.alu_result (write_data),
 	.read_data (read_data),
 	.write_enable (write_enable),
-    .read_enable ( read_enable)
+    .read_enable ( read_enable),
+    .mem_done (mem_done)
 );
 
 // MEMORY COM CONTROLLER INSTANCE
@@ -49,7 +51,7 @@ memory_com memory_communitacion(
     .tx (mem_tx),
     .write_enable (write_enable),
     .read_enable ( read_enable ),
-    .mem_done ( /* NOT CONNECTED */ ),
+    .mem_done (mem_done ),
     .writeData (write_data),
     .readData (read_data),
     .address (address)

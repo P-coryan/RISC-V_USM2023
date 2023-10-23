@@ -8,7 +8,8 @@ module tt_um_single_cycle_datapath (
 	alu_result,
 	read_data,
 	write_enable,
-	read_enable
+	read_enable,
+	mem_done
 );
 	input wire clk;
 	input wire rst;
@@ -18,6 +19,7 @@ module tt_um_single_cycle_datapath (
 	input wire [31:0] read_data;
 	output wire write_enable;
 	output reg read_enable;
+	output reg mem_done;
 	localparam signed [31:0] rv32i_defs_InstructionSize = 32;
 	reg [31:0] pc;
 	reg [31:0] pc_next;
@@ -32,11 +34,14 @@ module tt_um_single_cycle_datapath (
 			'd1: pc_next = pc_target;
 			default: pc_next = 'bx;
 		endcase
-	always @(posedge clk)
+	always @(posedge clk) begin
 		if (rst)
 			pc <= 'b0;
 		else
-			pc <= pc_next;
+			if (mem_done) pc <= pc_next;
+			else pc <= pc;	// puede ser redundante (no se si es necesario)
+	end
+		
 	assign addr = pc;
 	wire reg_write;
 	wire [31:0] read_data_1;
