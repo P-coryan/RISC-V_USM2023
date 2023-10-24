@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module uart_32bit_tx(
     input wire clk,
     input wire reset,
@@ -12,7 +14,7 @@ reg        byte_start;
 reg [7:0]  send_data;
 reg        send_ready;
 
-uart_32bit_tx uart_tx(
+uart_sm_tx uart_tx(
     .clk        ( clk ),
     .reset      ( reset ),
     .send_pulse ( byte_start ),

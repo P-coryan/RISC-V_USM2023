@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module uart_32bit_rx (
     input wire clk, reset,
     input wire rx,

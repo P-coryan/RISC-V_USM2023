@@ -38,7 +38,8 @@ module tt_um_single_cycle_datapath (
 		if (rst)
 			pc <= 'b0;
 		else
-			if (mem_done) pc <= pc_next;
+			if (~read_enable && ~write_enable) pc <= pc_next;
+			else if (mem_done) pc <= pc_next;
 			else pc <= pc;	// puede ser redundante (no se si es necesario)
 	end
 		

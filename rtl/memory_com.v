@@ -119,21 +119,3 @@ end
 
 endmodule
 
-/*
-
-Write: 
-    
-if(write_enable) enviar esto:
-    address
-    writeData
-    MemWrite
-
-Read:
-
-if(read_enable) enviar:
-    address
-    SizeLoad
-y recibir:
-    readData
-
-*/
