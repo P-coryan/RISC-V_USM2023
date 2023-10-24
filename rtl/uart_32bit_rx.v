@@ -57,7 +57,7 @@ always @(posedge clk) begin
         data_out <= data_out;
         if(save) begin
             for( i = 0; i <= 'b11; i=i+1'b1 ) begin
-                if( save_ctrl == i ) data_out[i*8+:8] = recv_data;
+                if( save_ctrl == i ) data_out[i*8+:8] <= recv_data;
             end
         end
     end
