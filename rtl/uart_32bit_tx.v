@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module uart_32bit_tx(
     input wire clk,
     input wire reset,
@@ -43,9 +41,6 @@ always @(posedge clk) begin
     end
 end
 
-reg      rst_data;
-reg       save;
-reg [1:0] save_ctrl;
 
 always @(*) begin
     next_state = IDLE;

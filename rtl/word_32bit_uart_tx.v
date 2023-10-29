@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -24,7 +23,7 @@ module word_32bit_uart_tx(
     input wire clk, reset,
     input wire addr_query,
     input wire [31:0] addr,
-    output reg tx,
+    output wire tx,
     output reg word_send
     );
     
@@ -42,7 +41,7 @@ module word_32bit_uart_tx(
     
     wire pre_tx;
     
-    assign tx = addr_query ? pre_tx : 1'hz;
+    assign tx = addr_query ? pre_tx : 1'h1;
     
     uart_sm_tx byte_tx(clk,reset,byte_query,byte_data,pre_tx,byte_end);
     

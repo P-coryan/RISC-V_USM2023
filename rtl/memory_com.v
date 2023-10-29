@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module memory_com (
     input wire clk,reset,
     
@@ -63,7 +61,7 @@ uart_32bit_tx uart_tx(
 );
 
 
-reg [7:0] readData_prev;
+reg [31:0] readData_prev;
 always @(posedge clk) begin
     if(reset) begin
         readData_prev <= 'b0;

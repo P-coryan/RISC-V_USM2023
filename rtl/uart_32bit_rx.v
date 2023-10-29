@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module uart_32bit_rx (
     input wire clk, reset,
     input wire rx,
@@ -47,7 +45,7 @@ reg       rst_data;
 reg       save;
 reg [1:0] save_ctrl;
 
-reg [1:0] i;
+reg [2:0] i;
 
 always @(posedge clk) begin
     if( reset || rst_data ) begin
@@ -57,7 +55,7 @@ always @(posedge clk) begin
         data_out <= data_out;
         if(save) begin
             for( i = 0; i <= 'b11; i=i+1'b1 ) begin
-                if( save_ctrl == i ) data_out[i*8+:8] <= recv_data;
+                if( save_ctrl == i[1:0] ) data_out[i*8+:8] <= recv_data;
             end
         end
     end
@@ -106,7 +104,7 @@ always @(*) begin
             if( recv_ready ) next_state = SAVE_BYTE4;
             else next_state = RECV_BYTE4;
         end
-        SAVE_BYTE2: begin
+        SAVE_BYTE4: begin
             save = 1;
             save_ctrl = 3;
             next_state = DONE;

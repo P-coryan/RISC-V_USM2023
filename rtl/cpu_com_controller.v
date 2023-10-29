@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -63,7 +62,8 @@ module cpu_com_controller(
     PB_Debouncer_FSM #(1) pb3(div_clk,reset,instr_send,PB_pressed_status3,PB_pressed_pulse3,PB_released_pulse3);
     
     word_32_bit_uart_rx uart_rx(div_clk,reset,rx,uart_data,cmd_redy);
-    word_32bit_uart_tx uart_send_redy(div_clk,reset,cpu_redy,32'd3,tx,cmd_send); //juntar ambos send en uno solo con un multiplexor dentro
+    wire tx_1;
+    word_32bit_uart_tx uart_send_redy(div_clk,reset,cpu_redy,32'd3,tx_1 ,cmd_send); //juntar ambos send en uno solo con un multiplexor dentro
     word_32bit_uart_tx uart_tx(div_clk,reset,send_pc,pc,tx,instr_send);
     
     always @(*) begin

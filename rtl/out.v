@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module tt_um_single_cycle_datapath (
 	clk,
 	rst,
@@ -9,7 +7,8 @@ module tt_um_single_cycle_datapath (
 	read_data,
 	write_enable,
 	read_enable,
-	mem_done
+	mem_done,
+	pc
 );
 	input wire clk;
 	input wire rst;
@@ -19,10 +18,11 @@ module tt_um_single_cycle_datapath (
 	input wire [31:0] read_data;
 	output wire write_enable;
 	output reg read_enable;
-	output reg mem_done;
-	localparam signed [31:0] rv32i_defs_InstructionSize = 32;
-	reg [31:0] pc;
+	input reg mem_done;
+	output reg [31:0] pc;
 	reg [31:0] pc_next;
+	localparam signed [31:0] rv32i_defs_InstructionSize = 32;
+	
 	localparam signed [31:0] rv32i_defs_OperandSize = 32;
 	wire [31:0] imm_ext;
 	wire [31:0] pc_target;
