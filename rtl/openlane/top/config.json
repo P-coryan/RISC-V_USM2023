@@ -1,7 +1,10 @@
 {
-    "DESIGN_NAME": "top",
-    "VERILOG_FILES": "../../top.v",
+    "DESIGN_NAME": "tt_top_riscv",
+    "VERILOG_FILES": "../../top.v ../../top_uart.v ../../out.v ../../clock_divider.v ../../cpu_com_controller.v ../../memory_com.v ../../PB_Debouncer_FSM.v ../../uart_32bit_rx.v ../../uart_32bit_tx.v ../../uart_sm_rx.v ../../uart_sm_tx.v ../../word_32_bit_uart_rx.v ../../word_32bit_uart_tx.v",
     "CLOCK_PORT": "clk",
     "CLOCK_PERIOD": 20.0,
-    "DESIGN_IS_CORE": true
+    "DESIGN_IS_CORE": true,
+    "SYNTH_STRATEGY": "DELAY 0",
+    "SYNTH_BUFFERING": "0",
+    "SYNTH_SIZING": "0"
 }
